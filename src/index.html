@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧋 奶茶店菜单 - 一杯暖心</title>
+    <style>
+        /* ========== 页面基本样式 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFF8F0;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #5D3A1A;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background-color: #8B5E3C;
+            color: #FFF8F0;
+            text-align: center;
+            padding: 30px 20px 20px;
+        }
+
+        .shop-name {
+            font-size: 2.2em;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+
+        .shop-tagline {
+            font-size: 0.95em;
+            opacity: 0.85;
+        }
+
+        .banner-area {
+            background-color: #D4A574;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner-text-wrap {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollBanner 15s linear infinite;
+        }
+
+        .banner-text {
+            font-size: 1.15em;
+            color: #FFF8F0;
+            font-weight: bold;
+            padding-right: 60px;
+        }
+
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .banner-area:hover .banner-text-wrap {
+            animation-play-state: paused;
+        }
+
+        .menu-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 50px;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 1.6em;
+            color: #8B5E3C;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .menu-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #C49A6C;
+            margin: 10px auto 30px;
+            border-radius: 2px;
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .drink-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px 20px 20px;
+            box-shadow: 0 4px 16px rgba(139, 94, 60, 0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #F5E6D3;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drink-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background-color: #C49A6C;
+            border-radius: 16px 0 0 16px;
+        }
+
+        .drink-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 28px rgba(139, 94, 60, 0.20);
+        }
+
+        .drink-icon {
+            font-size: 2.6em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .drink-name {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #5D3A1A;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .drink-desc {
+            font-size: 0.9em;
+            color: #A0846B;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .drink-price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #C49A6C;
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px dashed #F0E0D0;
+        }
+
+        .drink-price .currency {
+            font-size: 0.7em;
+        }
+
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #B8A088;
+            font-size: 0.85em;
+            background-color: #FDF3E8;
+        }
+
+        @media (max-width: 600px) {
+            .shop-name { font-size: 1.5em; }
+            .drinks-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+            .drink-card { padding: 16px 12px 14px; border-radius: 12px; }
+            .drink-icon { font-size: 2em; }
+            .drink-name { font-size: 1.05em; }
+            .drink-desc { font-size: 0.8em; }
+            .drink-price { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1 class="shop-name">🧋 一杯暖心</h1>
+        <p class="shop-tagline">用心做好每一杯茶，温暖你的每一天</p>
+    </header>
+
+    <div class="banner-area">
+        <div class="banner-text-wrap">
+            <span class="banner-text">
+                🌟 今日推荐：黑糖珍珠鲜奶 · 买一送一！ ｜ 新品上市：芋泥波波奶茶 · 第二杯半价！ ｜ 限时特惠：经典珍珠奶茶 · 立减3元！ 🌟
+            </span>
+            <span class="banner-text">
+                🌟 今日推荐：黑糖珍珠鲜奶 · 买一送一！ ｜ 新品上市：芋泥波波奶茶 · 第二杯半价！ ｜ 限时特惠：经典珍珠奶茶 · 立减3元！ 🌟
+            </span>
+        </div>
+    </div>
+
+    <main class="menu-container">
+        <h2 class="menu-title">📋 全部饮品</h2>
+
+        <div class="drinks-grid">
+            <div class="drink-card">
+                <div class="drink-icon">🧋</div>
+                <div class="drink-name">经典珍珠奶茶</div>
+                <div class="drink-desc">香浓红茶搭配手工熬煮的黑糖珍珠，Q弹有嚼劲，每一口都是经典味道</div>
+                <div class="drink-price"><span class="currency">¥</span>12</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🫘</div>
+                <div class="drink-name">红豆燕麦奶茶</div>
+                <div class="drink-desc">绵密红豆遇上健康燕麦，搭配浓郁奶茶，温暖又饱腹，冬日首选</div>
+                <div class="drink-price"><span class="currency">¥</span>13</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🥭</div>
+                <div class="drink-name">椰果芒果奶茶</div>
+                <div class="drink-desc">新鲜芒果果肉 + 爽脆椰果，热带风情与奶茶的甜蜜碰撞</div>
+                <div class="drink-price"><span class="currency">¥</span>11</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🍵</div>
+                <div class="drink-name">抹茶拿铁</div>
+                <div class="drink-desc">日本宇治抹茶融入丝滑牛奶，茶香浓郁，口感细腻，颜值满分</div>
+                <div class="drink-price"><span class="currency">¥</span>15</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🐄</div>
+                <div class="drink-name">黑糖珍珠鲜奶</div>
+                <div class="drink-desc">手炒黑糖挂壁，搭配纯鲜奶和Q弹珍珠，焦香浓郁，店内销量冠军</div>
+                <div class="drink-price"><span class="currency">¥</span>16</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🍠</div>
+                <div class="drink-name">芋泥波波奶茶</div>
+                <div class="drink-desc">新鲜芋头蒸煮成泥，搭配波波珍珠和奶茶，绵密香甜，芋泥控必点</div>
+                <div class="drink-price"><span class="currency">¥</span>14</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🍇</div>
+                <div class="drink-name">葡萄冰摇茶</div>
+                <div class="drink-desc">整颗葡萄果肉 + 茉莉绿茶底，清爽微甜，夏日解暑神器</div>
+                <div class="drink-price"><span class="currency">¥</span>13</div>
+            </div>
+            <div class="drink-card">
+                <div class="drink-icon">🍋</div>
+                <div class="drink-name">柠檬绿茶</div>
+                <div class="drink-desc">新鲜柠檬切片 + 高山绿茶，酸甜清爽，解腻解渴，0卡路里</div>
+                <div class="drink-price"><span class="currency">¥</span>10</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>📍 地址：温暖街 88 号 ｜ 📞 电话：400-888-6688</p>
+        <p>🕐 营业时间：每天 10:00 - 22:00 ｜ 欢迎到店品尝～</p>
+    </footer>
+
+</body>
+</html>
